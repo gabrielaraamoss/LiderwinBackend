@@ -8,7 +8,7 @@ from rest_framework.authentication import SessionAuthentication
 
 
 class ClienteViewSet(ModelViewSet):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     serializer_class = serializers.ClienteSerializer
 
     def get_queryset(self):

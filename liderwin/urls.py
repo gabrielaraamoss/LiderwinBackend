@@ -17,8 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.authtoken.views import obtain_auth_token
 from django.conf import settings
+from django.conf.urls.static import static
+from django.views.generic.base import RedirectView
+from django.urls import path, reverse_lazy
 
 urlpatterns = [
+    path('', RedirectView.as_view(url=reverse_lazy('admin:index'))),
     path("", include("liderwin.urls_api")), 
     path('admin/', admin.site.urls),
     path('api-login',obtain_auth_token, name="api-auth_token"),
